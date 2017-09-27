@@ -23,16 +23,24 @@ Piece TicTacToeBoard::toggleTurn()
   {
     turn = O;
   }
-  else if(turn == O)
+  else
   {
-    turn = X;
+    turn =X;
   }
+  /*
+  I addded bug that when piece(0,2) is not a Blank, turn is always be X.
+  Whether piece(0,2) is Blank or not, turn should be changed not always be X,
+  so I make the bug as comment.
   
+  */
   //bug start
+  
+  /*
   if(getPiece(0,2) != Blank)
   {
     turn = X;
   }
+  */
   //bug end
   return turn;
 }
@@ -101,24 +109,36 @@ Piece TicTacToeBoard::getWinner()
   
   for(int i=0; i<3; i++)
   {
-    if((board[i][0] == board[i][1]) && (board[i][0] == board[i][2]))
+    if(board[i][0] == board[i][1])
     {
-      return board[i][0];
+      if(board[i][0] == board[i][2])
+      {
+        return board[i][0];
+      }
     }
-    else if((board[0][i] == board[1][i]) && (board[0][i] == board[2][i]))
+    if(board[0][i] == board[1][i])
     {
-      return board[0][i];
+      if(board[0][i] == board[2][i])
+      {
+        return board[0][i];
+      }
     }
   }
   
-  if((board[0][0] ==board[1][1]) && (board[1][1] == board[2][2]))
+  if(board[0][0] ==board[1][1])
   {
-    return board[0][0];
+    if(board[1][1] == board[2][2])
+    {
+      return board[0][0];
+    }
   }
   
-  if((board[0][2] == board[1][1]) && (board[0][2] == board[2][0]))
+  if(board[0][2] == board[1][1])
   {
-    return board[0][2];
+    if(board[0][2] == board[2][0])
+    {
+      return board[0][2];
+    }
   }
   
   return Blank;
