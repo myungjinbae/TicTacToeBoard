@@ -66,6 +66,18 @@ TEST(TicTacToeBoardTest, placePiece5)
 	ASSERT_EQ('?', T.placePiece(-2,-2));
 }
 
+TEST(TicTacToeBoardTest, placePiece6)
+{
+	TicTacToeBoard T;
+	ASSERT_EQ('?', T.placePiece(2,22));
+}
+
+TEST(TicTacToeBoardTest, placePiece7)
+{
+	TicTacToeBoard T;
+	ASSERT_EQ('?', T.placePiece(2,-2));
+}
+
 TEST(TicTacToeBoardTest, getPiece1)
 {
 	TicTacToeBoard T;
@@ -91,6 +103,18 @@ TEST(TicTacToeBoardTest, getPiece4)
 	ASSERT_EQ('X', T.getPiece(1,1));
 }
 
+TEST(TicTacToeBoardTest, getPiece5)
+{
+	TicTacToeBoard T;
+	ASSERT_EQ('?', T.getPiece(1,-1));
+}
+
+TEST(TicTacToeBoardTest, getPiece6)
+{
+	TicTacToeBoard T;
+	ASSERT_EQ('?', T.getPiece(1,11));
+}
+
 TEST(TicTacToeBoardTest, getWinner1)
 {
 	TicTacToeBoard T;
@@ -112,7 +136,10 @@ TEST(TicTacToeBoardTest, getWinner2)
 	T.placePiece(2,2);
 	ASSERT_EQ('X', T.getWinner());
 }
-
+  /* 
+  BUG: Describe the situation and what the EXPECTED outcome should be 
+  but also what the ACTUAL outcome is with your bug
+  */
 TEST(TicTacToeBoardTest, getWinner3)
 {
 	TicTacToeBoard T;
@@ -127,7 +154,10 @@ TEST(TicTacToeBoardTest, getWinner3)
 	T.placePiece(2,2);
 	ASSERT_EQ('O', T.getWinner());
 }
-
+  /* 
+  BUG: Describe the situation and what the EXPECTED outcome should be 
+  but also what the ACTUAL outcome is with your bug
+  */
 TEST(TicTacToeBoardTest, getWinner4)
 {
 	TicTacToeBoard T;
@@ -141,4 +171,64 @@ TEST(TicTacToeBoardTest, getWinner4)
 	T.placePiece(2,0);
 	T.placePiece(2,2);
 	ASSERT_EQ(' ', T.getWinner());
+}
+
+TEST(TicTacToeBoardTest, getWinner5)
+{
+	TicTacToeBoard T;
+	T.placePiece(0,0);
+	T.placePiece(0,2);
+	T.placePiece(0,1);
+	T.placePiece(1,1);
+	T.placePiece(1,0);
+	T.placePiece(1,2);
+	T.placePiece(2,1);
+	T.placePiece(2,2);
+	T.placePiece(2,0);
+	ASSERT_EQ('X', T.getWinner());
+}
+
+TEST(TicTacToeBoardTest, getWinner6)
+{
+	TicTacToeBoard T;
+	T.placePiece(0,0);
+	T.placePiece(0,1);
+	T.placePiece(0,2);
+	T.placePiece(1,1);
+	T.placePiece(1,0);
+	T.placePiece(1,2);
+	T.placePiece(2,1);
+	T.placePiece(2,0);
+	T.placePiece(2,2);
+	ASSERT_EQ(' ', T.getWinner());
+}
+
+TEST(TicTacToeBoardTest, getWinner7)
+{
+	TicTacToeBoard T;
+	T.placePiece(1,1);
+	T.placePiece(0,2);
+	T.placePiece(0,1);
+	T.placePiece(0,0);
+	T.placePiece(1,0);
+	T.placePiece(1,2);
+	T.placePiece(2,0);
+	T.placePiece(2,1);
+	T.placePiece(2,2);
+	ASSERT_EQ(' ', T.getWinner());
+}
+
+TEST(TicTacToeBoardTest, getWinner8)
+{
+	TicTacToeBoard T;
+	T.placePiece(0,0);
+	T.placePiece(0,2);
+	T.placePiece(0,1);
+	T.placePiece(1,1);
+	T.placePiece(1,0);
+	T.placePiece(1,2);
+	T.placePiece(2,1);
+	T.placePiece(2,0);
+	T.placePiece(2,2);
+	ASSERT_EQ('O', T.getWinner());
 }
